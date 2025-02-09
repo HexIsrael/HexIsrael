@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הסבר על השרת</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000;
+      color: #00ff00; /* ירוק ניאון */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #00ff00;
+      font-weight: bold;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+
+    .menu-button {
+      padding: 15px 30px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #00f2ff;
+      background: black;
+      border: 2px solid #00f2ff;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 30px;
+      text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff, 0 0 30px #00f2ff;
+      transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-button:hover {
+      background: #00f2ff;
+      color: rgb(255, 255, 255);
+      transform: scale(1.2) rotate(5deg);
+      box-shadow: 0 0 15px #000000;
+    }
+
+    .menu-button:active {
+      transform: scale(1) rotate(-5deg);
+    }
+
+    /* Interactive Neon Grid for Background */
+    .tile-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(20, 5vw);
+      grid-template-rows: repeat(20, 5vw);
+      gap: 0;
+      z-index: -1;
+      transform-style: preserve-3d;
+    }
+
+    .tile {
+      background: #111111;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+      z-index: 1;
+      transform: translateZ(0);
+    }
+
+    .tile:hover {
+      transform: translateZ(60px) scale(1.1);
+      background-color: #00ff00;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+    }
+  </style>
+</head>
+<body>
+  <h1>הסבר על השרת</h1>
+  <p>ברוך הבא להאקס ישראל! אנחנו קבוצה של מפתחים ואנשי סייבר שמתחברים יחד כדי ללמוד, לשתף וליצור.</p>
+  <p>השרת כולל כלים שונים בתחום ההאקינג, סייבר, וכל מה שקשור לעולם המידע והטכנולוגיה.</p>
+  <p>בשרת תמצאו כלים לשימוש חופשי, סדנאות, חידות טכנולוגיות, קורסים, ועוד.</p>
+  <a href="index.html" class="menu-button">חזרה לדף הראשי</a>
+
+  <!-- Interactive Grid of Tiles for Background -->
+  <div class="tile-container"></div>
+
+  <script>
+    // Generate Tiles in a Grid for the background
+    function generateTiles() {
+      const tileContainer = document.querySelector('.tile-container');
+      
+      // Create 20 x 20 grid of tiles
+      for (let i = 0; i < 400; i++) {
+        let tile = document.createElement('div');
+        tile.classList.add('tile');
+        tileContainer.appendChild(tile);
+      }
+    }
+
+    window.onload = generateTiles; // Ensures the tiles are generated after the page has loaded
+  </script>
+</body>
+</html>
